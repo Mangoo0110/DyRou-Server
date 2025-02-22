@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended : true}));
 
 const DB = "mongodb+srv://arrow360degree:110057@cluster0.cvwmbiv.mongodb.net/?retryWrites=true&w=majority";
 
-//middleware
+// Routes
 app.use("/DyRou/auth",authRouter);
 // app.use(userSearchRouter);
 app.use("/DyRou/handshake", handshakeRouter); 
@@ -30,11 +30,12 @@ app.use("/DyRou/groupRoutine", groupRoutineRouter);
 app.use("/DyRou/events", eventsRouter);
 app.use("/DyRou/userInfo", UserInfoRouter);
 
+// Server....
 app.listen(PORT, "0.0.0.0", function (){
     console.log("Connected... hi :)");
 });
 
-//connection
+// MongoDb connection
 mongoose
     .connect(DB)
     .then(()=>{
